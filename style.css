@@ -20,18 +20,20 @@ header {
 
 header h1 {
     margin: 0;
-    font-size: 2rem; /* Tamanho do texto ajustado para mobile */
+    font-size: 2.5rem; /* Tamanho padrão para desktop */
 }
 
+/* Container principal do menu */
 .menu-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsivo */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsividade: auto-ajuste */
     gap: 20px;
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
+/* Itens do menu */
 .menu-item {
     background-color: white;
     border-radius: 10px;
@@ -41,13 +43,9 @@ header h1 {
     transition: transform 0.3s ease;
 }
 
-.menu-item:hover {
-    transform: translateY(-5px);
-}
-
 .menu-item h2 {
     color: #00796b;
-    font-size: 1.5rem; /* Ajuste no tamanho do texto */
+    font-size: 1.8rem;
 }
 
 .menu-item p {
@@ -55,7 +53,6 @@ header h1 {
     font-size: 1rem;
 }
 
-/* Botões e links */
 .menu-link {
     display: inline-block;
     padding: 10px 20px;
@@ -69,27 +66,6 @@ header h1 {
 
 .menu-link:hover {
     background-color: #00796b;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 1.5rem; /* Reduzir o tamanho do cabeçalho em telas menores */
-    }
-
-    .menu-container {
-        padding: 10px; /* Reduzir o padding para telas menores */
-    }
-}
-
-@media (max-width: 600px) {
-    .menu-container {
-        grid-template-columns: 1fr; /* Alinhar os itens em uma única coluna no celular */
-    }
-
-    header h1 {
-        font-size: 1.3rem; /* Tamanho ainda menor para o cabeçalho */
-    }
 }
 
 footer {
@@ -114,7 +90,26 @@ footer {
     background-color: #ffca28;
 }
 
-/* Responsividade para o popup */
+/* Transições suaves */
+.menu-link, .help-button {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.menu-link:hover, .help-button:hover {
+    background-color: #00796b;
+    transform: scale(1.05);
+}
+
+.menu-item {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.menu-item:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+/* Popup de ajuda */
 #help-popup-container {
     position: fixed;
     top: 50%;
@@ -145,21 +140,44 @@ footer {
     right: 10px;
 }
 
-/* Efeitos de hover */
-.menu-item {
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+/* Configuração específica para telas menores */
+/* Dispositivos com largura abaixo de 768px (tablets e celulares grandes) */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem; /* Reduzir o tamanho do texto do cabeçalho */
+    }
+
+    .menu-container {
+        padding: 10px;
+    }
 }
 
-.menu-item:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transform: translateY(-5px);
-}
+/* Configuração específica para celulares menores (largura abaixo de 600px) */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.5rem; /* Cabeçalho ainda menor para celulares */
+    }
 
-.menu-link, .help-button {
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
+    .menu-container {
+        grid-template-columns: 1fr; /* Colocar itens em uma única coluna */
+        padding: 10px;
+    }
 
-.menu-link:hover, .help-button:hover {
-    background-color: #00796b;
-    transform: scale(1.05);
+    .menu-item h2 {
+        font-size: 1.6rem; /* Reduzir o tamanho dos títulos no celular */
+    }
+
+    .menu-item p {
+        font-size: 0.9rem; /* Reduzir o tamanho do parágrafo no celular */
+    }
+
+    .menu-link {
+        font-size: 0.9rem; /* Botões menores para celulares */
+        padding: 8px 15px;
+    }
+
+    footer {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
 }
