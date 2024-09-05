@@ -20,20 +20,18 @@ header {
 
 header h1 {
     margin: 0;
-    font-size: 2.5rem; /* Tamanho padrão para desktop */
+    font-size: 2.5rem;
 }
 
-/* Container principal do menu */
 .menu-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsividade: auto-ajuste */
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
-    padding: 20px;
+    padding: 40px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Itens do menu */
 .menu-item {
     background-color: white;
     border-radius: 10px;
@@ -75,7 +73,6 @@ footer {
     margin-top: 50px;
 }
 
-/* Botão de ajuda */
 .help-button {
     padding: 10px 15px;
     border: none;
@@ -140,44 +137,87 @@ footer {
     right: 10px;
 }
 
-/* Configuração específica para telas menores */
-/* Dispositivos com largura abaixo de 768px (tablets e celulares grandes) */
-@media (max-width: 768px) {
+/* Responsividade para tablets (paisagem e retrato) */
+@media (max-width: 1024px) {
     header h1 {
-        font-size: 1.8rem; /* Reduzir o tamanho do texto do cabeçalho */
+        font-size: 2rem;
     }
 
     .menu-container {
-        padding: 10px;
-    }
-}
-
-/* Configuração específica para celulares menores (largura abaixo de 600px) */
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 1.5rem; /* Cabeçalho ainda menor para celulares */
-    }
-
-    .menu-container {
-        grid-template-columns: 1fr; /* Colocar itens em uma única coluna */
-        padding: 10px;
+        grid-template-columns: 1fr;
+        padding: 20px;
     }
 
     .menu-item h2 {
-        font-size: 1.6rem; /* Reduzir o tamanho dos títulos no celular */
+        font-size: 1.6rem;
     }
 
-    .menu-item p {
-        font-size: 0.9rem; /* Reduzir o tamanho do parágrafo no celular */
-    }
-
-    .menu-link {
-        font-size: 0.9rem; /* Botões menores para celulares */
-        padding: 8px 15px;
+    .menu-item {
+        padding: 15px;
     }
 
     footer {
         padding: 15px;
+    }
+}
+
+/* Responsividade para telas de celulares grandes (largura até 768px) */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .menu-container {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .menu-item h2 {
+        font-size: 1.4rem;
+    }
+
+    .menu-item {
+        padding: 12px;
+    }
+
+    footer {
+        padding: 15px;
+    }
+
+    ul {
         font-size: 0.9rem;
+    }
+}
+
+/* Responsividade para celulares pequenos (largura até 480px) */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .menu-container {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .menu-item h2 {
+        font-size: 1.2rem;
+    }
+
+    .menu-item {
+        padding: 10px;
+    }
+
+    footer {
+        padding: 10px;
+    }
+
+    ul {
+        font-size: 0.85rem;
+    }
+
+    .menu-link {
+        font-size: 0.9rem;
+        padding: 8px 16px;
     }
 }
