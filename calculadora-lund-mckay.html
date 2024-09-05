@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Lund-Mackay</title>
+    <link rel="stylesheet" href="styleslundcalc.css">
+</head>
+<body>
+    <header>
+        <h1>Calculadora Lund-Mackay</h1>
+        <p>Calcule a pontuação de opacificação sinusal com base no sistema Lund-Mackay.</p>
+        <button id="help-button" class="menu-link">Ajuda</button>
+    </header>
+
+    <section class="calculator-container">
+        <form id="lund-mackay-form">
+            <!-- Texto de ajuda -->
+        <div id="help-text">
+            <p>A calculadora Lund-Mackay é usada para avaliar a opacificação dos seios paranasais com base em exames de imagem. Para cada seio, use o controle deslizante para selecionar o nível de opacificação:</p>
+            <ul>
+                <li><strong>0</strong>: Sem opacificação</li>
+                <li><strong>1</strong>: Opacificação parcial</li>
+                <li><strong>2</strong>: Opacificação total</li>
+            </ul>
+            <p>O escore total varia de 0 a 24, sendo que valores mais altos indicam maior obstrução e inflamação.</p>
+        </div>
+            <h2>Selecione os escores de cada seio paranasal</h2>
+
+            <!-- Legendas para esquerda e direita -->
+            <div class="form-row legend">
+                <span></span>
+                <span>Esquerda (ESQ)</span>
+                <span>Direita (DIR)</span>
+            </div>
+
+            <!-- Linha de Seios Frontais -->
+            <div class="form-row">
+                <label>Seio Frontal</label>
+                <div class="slider-container">
+                    <input type="range" id="frontal-esq" name="frontal-esq" min="0" max="2" value="0" orient="vertical" oninput="this.nextElementSibling.value = this.value">
+                    <output>0</output>
+                </div>
+                <div class="slider-container">
+                    <input type="range" id="frontal-dir" name="frontal-dir" min="0" max="2" value="0" orient="vertical" oninput="this.nextElementSibling.value = this.value">
+                    <output>0</output>
+                </div>
+            </div>
+
+            <!-- Linha de Células Etmoidais Anteriores -->
+            <div class="form-row">
+                <label>Células Etmoidais Anteriores</label>
+                <div class="slider-container">
+                    <input type="range" id="etmoidal-ant-esq" name="etmoidal-ant-esq" min="0" max="2" value="0" orient="vertical" oninput="this.nextElementSibling.value = this.value">
+                    <output>0</output>
+                </div>
+                <div class="slider-container">
+                    <input type="range" id="etmoidal-ant-dir" name="etmoidal-ant-dir" min="0" max="2" value="0" orient="vertical" oninput="this.nextElementSibling.value = this.value">
+                    <output>0</output>
+                </div>
+            </div>
+
+            <!-- Linha de Células Etmoidais Posteriores -->
+            <div class="form-row">
+                <label>Células Etmoidais Posteriores</label>
+                <div class="slider-container">
+                    <input type="range" id="etmoidal-post-esq" name="etmoidal-post-esq" min="0" max="2" value="0" orient="vertical" oninput="this.nextElementSibling.value = this.value">
+                    <output>0</output>
+                </div>
+                <div class="slider-container">
+                    <input type="range" id="etmoidal-post-dir" name="etmoidal-post-dir" min="0" max="2" value="0" orient="vertical" oninput="this.nextElementSibling.value = this.value">
+                    <output>0</output>
+                </div>
+            </div>
+
+            <!-- Linha de Seios Maxilares -->
+            <div class="form-row">
+                <label>Seio Maxilar</label>
+                <div class="slider-container">
+                    <input type="range" id="maxilar-esq" name="maxilar-esq" min="0" max="2" value="0" orient="vertical" oninput="this.nextElementSibling.value = this.value">
+                    <output>0</output>
+                </div>
+                <div class="slider-container">
+                    <input type="range" id="maxilar-dir" name="maxilar-dir" min="0" max="2" value="0" orient="vertical" oninput="this.nextElementSibling.value = this.value">
+                    <output>0</output>
+                </div>
+            </div>
+
+            <!-- Linha de Seios Esfenoidais -->
+            <div class="form-row">
+                <label>Seio Esfenoidal</label>
+                <div class="slider-container">
+                    <input type="range" id="esfenoidal-esq" name="esfenoidal-esq" min="0" max="2" value="0" orient="vertical" oninput="this.nextElementSibling.value = this.value">
+                    <output>0</output>
+                </div>
+                <div class="slider-container">
+                    <input type="range" id="esfenoidal-dir" name="esfenoidal-dir" min="0" max="2" value="0" orient="vertical" oninput="this.nextElementSibling.value = this.value">
+                    <output>0</output>
+                </div>
+            </div>
+
+            <!-- Linha de Complexo Óstiomeatal -->
+            <div class="form-row">
+                <label>Complexo Óstiomeatal</label>
+                <div class="slider-container">
+                    <input type="range" id="ostio-complex-esq" name="ostio-complex-esq" min="0" max="2" value="0" orient="vertical" oninput="this.nextElementSibling.value = this.value">
+                    <output>0</output>
+                </div>
+                <div class="slider-container">
+                    <input type="range" id="ostio-complex-dir" name="ostio-complex-dir" min="0" max="2" value="0" orient="vertical" oninput="this.nextElementSibling.value = this.value">
+                    <output>0</output>
+                </div>
+            </div>
+
+            <!-- Botão de Calcular e Exibir Resultado -->
+            <div class="button-group">
+                <button type="button" id="calculate-button">Calcular Pontuação</button>
+                <label for="total-score">Pontuação Total</label>
+                <input type="text" id="total-score" readonly>
+            </div>
+        </form>
+
+        
+    </section>
+
+    <footer>
+        <a href="index.html" class="menu-link">Voltar ao Menu Principal</a>
+        <p>&copy; 2024 Portal Imunobiológicos | Criado por Dr. Dario Hart Signorini</p>
+    </footer>
+
+    <script src="lundmckay.js"></script>
+</body>
+</html>

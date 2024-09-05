@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Médico - Nucala</title>
+    <link rel="stylesheet" href="report.css">
+</head>
+<body>
+    <header>
+        <h1>Relatório Médico - Nucala</h1>
+        <p>Preencha os dados para gerar o relatório automaticamente.</p>
+        <button type="button" id="preenchimento-teste">Preenchimento de Teste</button>
+    </header>
+
+    <section class="form-section">
+        <form id="report-form">
+            <h2>Dados do Paciente</h2>
+            <label for="nome-paciente">Nome:</label>
+            <input type="text" id="nome-paciente" name="nome-paciente" placeholder="Nome do paciente">
+            
+            <label for="idade-paciente">Idade:</label>
+            <input type="number" id="idade-paciente" name="idade-paciente" placeholder="Idade do paciente">
+            
+            <label for="sexo-paciente">Sexo:</label>
+            <select id="sexo-paciente" name="sexo-paciente">
+                <option value="M">Masculino</option>
+                <option value="F">Feminino</option>
+            </select>
+
+            <label for="cid">CID10 (Separe múltiplos CID com vírgulas):</label>
+            <input type="text" id="cid" name="cid" placeholder="Ex.: J45.9, J32.4">
+
+            <!-- Questionário de Eligibilidade -->
+            <h2>Avaliação pelo Questionário de Eligibilidade</h2>
+            <label for="questionario-eligibilidade">Resumo do Questionário de Eligibilidade:</label>
+            <textarea id="questionario-eligibilidade" name="questionario-eligibilidade" placeholder="Resumo automático ou manual do questionário de elegibilidade"></textarea>
+
+            <!-- Comorbidades -->
+            <h2>Comorbidades</h2>
+            <label for="comorbidades">Lista de Comorbidades:</label>
+            <textarea id="comorbidades" name="comorbidades" placeholder="Ex.: Rinossinusite Crônica com Polipose Nasal, etc."></textarea>
+
+            <!-- Exames e Pontuações -->
+            <h2>Exames Realizados</h2>
+            <label for="eosinofilia">Contagem de Eosinófilos:</label>
+            <input type="number" id="eosinofilia" name="eosinofilia" placeholder="Ex.: 300 células/µL">
+
+            <label for="lund-mackay">Pontuação Lund-Mackay:</label>
+            <input type="number" id="lund-mackay" name="lund-mackay" placeholder="Pontuação de 0 a 24">
+            
+            <label for="snot22">Pontuação SNOT-22:</label>
+            <input type="number" id="snot22" name="snot22" placeholder="Pontuação SNOT-22">
+
+            <label for="tomografia">Laudo da Tomografia:</label>
+            <textarea id="tomografia" name="tomografia" placeholder="Resumo do laudo de tomografia..."></textarea>
+
+            <!-- Prescrição Médica -->
+            <h2>Prescrição</h2>
+            <label for="prescricao">Prescrição:</label>
+            <textarea id="prescricao" name="prescricao" placeholder="Prescrição do medicamento e doses..."></textarea>
+
+            <!-- Descrição do Caso Clínico -->
+            <h2>Descrição do Caso Clínico</h2>
+            <label for="caso-clinico">Descrição Automática do Caso Clínico:</label>
+            <textarea id="caso-clinico" name="caso-clinico" placeholder="Descrição gerada automaticamente" readonly></textarea>
+
+            <button type="button" id="generate-report">Gerar Relatório</button>
+        </form>
+    </section>
+
+    <section class="report-preview" id="report-preview">
+        <h2>Visualização do Relatório</h2>
+        <div id="generated-report" contenteditable="true">
+            <!-- O relatório gerado será editável diretamente aqui -->
+        </div>
+        <button type="button" id="print-button">Imprimir Relatório</button>
+    </section>
+
+    <footer>
+        <a href="index.html" class="menu-link">Voltar ao Menu Principal</a>
+        <p>&copy; 2024 Portal Imunobiológicos | Criado por Dr. Dario Hart Signorini</p>
+    </footer>
+
+    <script src="relatorio.js"></script>
+</body>
+</html>

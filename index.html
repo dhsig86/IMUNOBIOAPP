@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Imunobiológicos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <h1>Portal de Imunobiológicos para Sinusite Crônica</h1>
+    </header>
+
+    <section class="menu-container">
+        <div class="menu-item">
+            <h2><i class="fas fa-info-circle"></i> INFO</h2>
+            <p>Informações gerais sobre o uso de imunobiológicos para sinusite crônica.</p>
+            <a href="info.html" class="menu-link">Saiba Mais</a>
+        </div>
+    
+        <div class="menu-item">
+            <h2><i class="fas fa-clipboard-list"></i> SNOT-22</h2>
+            <p>Questionário de qualidade de vida para pacientes com sinusite crônica.</p>
+            <a href="https://dhsig86.github.io/Snot22score/" target="_blank" class="menu-link">Acessar Questionário</a>
+        </div>
+    
+        <div class="menu-item">
+            <h2><i class="fas fa-question-circle"></i> Questionário de Elegibilidade</h2>
+            <p>Avalie a elegibilidade para o uso de imunobiológicos.</p>
+            <a href="https://nucalapp24-20166d95612a.herokuapp.com/" class="menu-link">Preencher Questionário</a>
+        </div>
+    
+        <div class="menu-item">
+            <h2><i class="fas fa-file-medical-alt"></i> Criador de Relatório Médico</h2>
+            <p>Gere relatórios médicos com os dados clínicos dos pacientes para envio aos convênios.</p>
+            <a href="relatorio.html" class="menu-link">Criar Relatório</a>
+        </div>
+    
+        <div class="menu-item">
+            <h2><i class="fas fa-file-download"></i> Formulário LME</h2>
+            <p>Baixe o modelo de Laudo de Medicamentos Excepcionais.</p>
+            <a href="LME_Outubro_2022.pdf" download class="menu-link">Baixar Formulário</a>
+        </div>
+
+        <div class="menu-item">
+            <h2><i class="fas fa-calculator"></i> Calculadora Lund-Mackay</h2>
+            <p>Calcule a pontuação Lund-Mackay para opacificação sinusal.</p>
+            <a href="calculadora-lund-mckay.html" class="menu-link">Acessar Calculadora</a>
+        </div>
+
+    </section>    
+
+    <footer>
+        <button id="help-button" class="help-button">Ajuda</button>
+        <p></p>
+        <p>&copy; 2024 Portal Imunobiológicos | Criado por Dr. Dario Hart Signorini</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1200, /* Duração da animação */
+            once: true      /* Executa apenas uma vez ao rolar */
+        });
+    </script>
+
+<script src="lundmckay.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+/* Estilos Gerais */
+/* Scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e0f2f1; /* Fundo verde claro */
+    color: #004d40; /* Verde escuro */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    background-color: #00796b; /* Verde escuro */
+    padding: 20px;
+    color: white;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.menu-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.menu-item {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.menu-item h2 {
+    color: #00796b;
+    font-size: 1.8rem;
+}
+
+.menu-item p {
+    color: #004d40;
+    font-size: 1rem;
+}
+
+.menu-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #004d40;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.menu-link:hover {
+    background-color: #00796b;
+}
+
+footer {
+    padding: 20px;
+    background-color: #004d40;
+    color: white;
+    margin-top: 50px;
+}
+
+.help-button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #ffa000;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.help-button:hover {
+    background-color: #ffca28;
+}
+/* Transição suave nos botões e links */
+.menu-link, .help-button {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Animação ao passar o mouse sobre os links */
+.menu-link:hover, .help-button:hover {
+    background-color: #00796b;
+    transform: scale(1.05); /* Leve aumento ao passar o mouse */
+}
+/* Efeito de hover nos itens do menu */
+.menu-item {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.menu-item:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra maior ao passar o mouse */
+    transform: translateY(-5px); /* Leve subida ao passar o mouse */
+}
+
+/* Estilos para o popup de ajuda */
+#help-popup-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Começa escondido e pequeno */
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 80%;
+    max-width: 400px;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transições suaves */
+}
+
+#help-popup-container.active {
+    transform: translate(-50%, -50%) scale(1); /* Aparece em tamanho normal */
+    opacity: 1;
+}
+
+.close-help-popup {
+    cursor: pointer;
+    font-size: 20px;
+    color: #d32f2f;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Estilo para os botões radio */
+.form-group .options label {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.form-group .options input[type="radio"] {
+    margin-right: 5px;
+    transform: scale(1.5); /* Aumentar o tamanho dos botões radio */
+}
+
+/* Responsividade para a calculadora */
+@media (max-width: 600px) {
+    .form-group .options {
+        flex-direction: column; /* Empilha as opções no celular */
+        align-items: flex-start;
+    }
+}
+/* Estilo para os botões radio */
+.form-group .options label {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.form-group .options input[type="radio"] {
+    margin-right: 5px;
+    transform: scale(1.5); /* Aumentar o tamanho dos botões radio */
+}
+
+/* Responsividade para a calculadora */
+@media (max-width: 600px) {
+    .form-group .options {
+        flex-direction: column; /* Empilha as opções no celular */
+        align-items: flex-start;
+    }
+}

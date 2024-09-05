@@ -1,0 +1,259 @@
+/* Estilos globais */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e9f5f0;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, label {
+    color: #006644; /* Verde escuro para títulos */
+    font-weight: bold;
+}
+
+p {
+    color: #333;
+    text-align: justify; /* Justificar os textos */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto; /* Centraliza a página */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para o cabeçalho */
+header {
+    background-color: #004d40;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px 10px 0 0; /* Bordas arredondadas no topo */
+}
+
+header h1 {
+    margin: 0;
+}
+
+header p {
+    margin: 5px 0 15px 0;
+}
+
+/* Botões */
+button {
+    background-color: #006644;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: #004d40;
+}
+
+/* Seção do formulário */
+.form-section {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.form-section h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.form-section label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-section input, 
+.form-section select, 
+.form-section textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Radio buttons */
+.radio-group {
+    margin-bottom: 20px;
+}
+
+.radio-group input {
+    margin-right: 10px;
+}
+
+.radio-group label {
+    display: inline-block;
+    margin-right: 15px;
+    font-weight: normal;
+}
+
+/* Visualização do relatório */
+.report-preview {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.report-preview h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#generated-report {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    text-align: justify; /* Justificar o texto do relatório */
+}
+
+#generated-report p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+#generated-report strong {
+    color: #006644;
+}
+
+#generated-report h3, #generated-report h4 {
+    color: #004d40;
+}
+
+#generated-report .highlight {
+    background-color: #e0f2f1;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+/* Botão de imprimir */
+#print-button {
+    background-color: #00593f;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 10px;
+    background-color: #004d40;
+    color: white;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsividade para tablets e celulares maiores */
+@media (max-width: 1024px) {
+    .container {
+        width: 90%;
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .form-section {
+        padding: 15px;
+    }
+
+    #generated-report p {
+        font-size: 15px;
+    }
+
+    button {
+        padding: 8px 12px;
+        font-size: 15px;
+    }
+}
+
+/* Responsividade para celulares menores */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    .form-section h2 {
+        font-size: 18px;
+    }
+
+    #generated-report p {
+        font-size: 14px;
+    }
+
+    button {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+
+    footer {
+        padding: 15px;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Responsividade para celulares pequenos (até 480px) */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.4rem;
+    }
+
+    .form-section {
+        padding: 10px;
+    }
+
+    .form-section input, 
+    .form-section select, 
+    .form-section textarea {
+        font-size: 14px;
+    }
+
+    #generated-report p {
+        font-size: 13px;
+    }
+
+    button {
+        padding: 5px 8px;
+        font-size: 13px;
+    }
+
+    footer {
+        padding: 10px;
+    }
+
+    footer p {
+        font-size: 0.8rem;
+    }
+}
