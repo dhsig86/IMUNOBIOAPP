@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
             slider.nextElementSibling.value = value;
         }
         calculateTotalScore();  // Chama o cálculo automático da pontuação total
+        checkSlidersAndAdvance(); // Verifica se ambos os sliders estão preenchidos para avançar
     };
 
     // Vincula o evento de mudança (input) aos sliders de cada seio para atualizar o feedback
@@ -68,7 +69,32 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Função do botão "Preencher Ambos", que copia o valor do slider esquerdo para o direito
+    // Função que verifica se ambos os sliders foram preenchidos e avança para o próximo seio
+    const checkSlidersAndAdvance = () => {
+        const currentSeio = seios[currentSeioIndex];
+        const esqSlider = document.getElementById(currentSeio.esq);
+        const dirSlider = document.getElementById(currentSeio.dir);
+
+        if (esqSlider.value !== "0" && dirSlider.value !== "0") {
+            if (currentSeioIndex < seios.length - 1) {
+                currentSeioIndex++;
+                showSeio(currentSeioIndex);
+            }
+        }
+    };
+
+    // Atualiza o feedback visual dos sliders conforme o input
+    seios.forEach(seio => {
+        const esqSlider = document.getElementById(seio.esq);
+        const dirSlider = document.getElementById(seio.dir);
+
+        if (esqSlider && dirSlider) {
+            esqSlider.addEventListener('input', () => updateSliderFeedback(esqSlider, `recipiente-${seio.esq}`));
+            dirSlider.addEventListener('input', () => updateSliderFeedback(dirSlider, `recipiente-${seio.dir}`));
+        }
+    });
+
+    // Botão "Preencher Ambos" - Preenche os dois sliders com o mesmo valor e avança
     document.getElementById('bilateral-button').addEventListener('click', function () {
         const currentSeio = seios[currentSeioIndex];
         const esqSlider = document.getElementById(currentSeio.esq);
@@ -76,6 +102,12 @@ document.addEventListener('DOMContentLoaded', function () {
         if (esqSlider && dirSlider) {
             dirSlider.value = esqSlider.value;
             updateSliderFeedback(dirSlider, `recipiente-${currentSeio.dir}`);
+        }
+
+        // Avançar automaticamente após preencher ambos
+        if (currentSeioIndex < seios.length - 1) {
+            currentSeioIndex++;
+            showSeio(currentSeioIndex);
         }
     });
 
@@ -111,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 totalScore += parseInt(dirSlider.value, 10) || 0;
             }
         });
-        totalScoreElement.value = `Pontuação Total: ${totalScore}`;
+        totalScoreElement.value = `${totalScore}`;
         styleTotalScore(totalScore);  // Chama a função para estilizar o campo da pontuação com cores
     };
 
@@ -176,6 +208,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Inicializa mostrando o primeiro seio
+    // Inicializar com o primeiro seio visível
     showSeio(currentSeioIndex);
+    calculateTotalScore(); // Calcula o total na inicialização
 });
