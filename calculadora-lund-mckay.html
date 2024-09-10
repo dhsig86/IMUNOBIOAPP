@@ -16,111 +16,186 @@
     <section class="calculator-container">
         <form id="lund-mackay-form">
             <!-- Texto de ajuda -->
-        <div id="help-text">
-            <p>A calculadora Lund-Mackay é usada para avaliar a opacificação dos seios paranasais com base em exames de imagem. Para cada seio, use o controle deslizante para selecionar o nível de opacificação:</p>
-            <ul>
-                <li><strong>0</strong>: Sem opacificação</li>
-                <li><strong>1</strong>: Opacificação parcial</li>
-                <li><strong>2</strong>: Opacificação total</li>
-            </ul>
-            <p>O escore total varia de 0 a 24, sendo que valores mais altos indicam maior obstrução e inflamação.</p>
-        </div>
+            <div id="help-text" class="hidden">
+                <p>A calculadora Lund-Mackay é usada para avaliar a opacificação dos seios paranasais com base em exames de imagem. Use o controle deslizante para selecionar o nível de opacificação de cada seio:</p>
+                <ul>
+                    <li><strong>0</strong>: Sem opacificação</li>
+                    <li><strong>1</strong>: Opacificação parcial</li>
+                    <li><strong>2</strong>: Opacificação total</li>
+                </ul>
+                <p>O escore total varia de 0 a 24, sendo que valores mais altos indicam maior obstrução.</p>
+            </div>
+
             <h2>Selecione os escores de cada seio paranasal</h2>
 
-            <!-- Legendas para esquerda e direita -->
-            <div class="form-row legend">
-                <span></span>
-                <span>Esquerda (ESQ)</span>
-                <span>Direita (DIR)</span>
+            <!-- Barra de progresso -->
+            <div class="progress-container">
+                <label for="progress-bar">Progresso:</label>
+                <progress id="progress-bar" value="0" max="100"></progress>
             </div>
 
-            <!-- Linha de Seios Frontais -->
-            <div class="form-row">
-                <label>Seio Frontal</label>
+            <!-- Seio Frontal -->
+            <div class="form-row" id="seio-frontal">
+                <label for="frontal-esq">Seio Frontal (Esquerdo)</label>
                 <div class="slider-container">
-                    <input type="range" id="frontal-esq" name="frontal-esq" min="0" max="2" value="0" orient="vertical" oninput="this.nextElementSibling.value = this.value">
+                    <div class="feedback-container">
+                        <div class="recipiente" id="recipiente-frontal-esq"></div>
+                    </div>
+                    <input type="range" id="frontal-esq" name="frontal-esq" min="0" max="2" value="0" title="Seio Frontal Esquerdo">
                     <output>0</output>
                 </div>
-                <div class="slider-container">
-                    <input type="range" id="frontal-dir" name="frontal-dir" min="0" max="2" value="0" orient="vertical" oninput="this.nextElementSibling.value = this.value">
-                    <output>0</output>
-                </div>
-            </div>
 
-            <!-- Linha de Células Etmoidais Anteriores -->
-            <div class="form-row">
-                <label>Células Etmoidais Anteriores</label>
+                <label for="frontal-dir">Seio Frontal (Direito)</label>
                 <div class="slider-container">
-                    <input type="range" id="etmoidal-ant-esq" name="etmoidal-ant-esq" min="0" max="2" value="0" orient="vertical" oninput="this.nextElementSibling.value = this.value">
-                    <output>0</output>
-                </div>
-                <div class="slider-container">
-                    <input type="range" id="etmoidal-ant-dir" name="etmoidal-ant-dir" min="0" max="2" value="0" orient="vertical" oninput="this.nextElementSibling.value = this.value">
+                    <div class="feedback-container">
+                        <div class="recipiente" id="recipiente-frontal-dir"></div>
+                    </div>
+                    <input type="range" id="frontal-dir" name="frontal-dir" min="0" max="2" value="0" title="Seio Frontal Direito">
                     <output>0</output>
                 </div>
             </div>
 
-            <!-- Linha de Células Etmoidais Posteriores -->
-            <div class="form-row">
-                <label>Células Etmoidais Posteriores</label>
+            <!-- Seio Maxilar -->
+            <div class="form-row hidden" id="seio-maxilar" >
+                <label for="maxilar-esq">Seio Maxilar (Esquerdo)</label>
                 <div class="slider-container">
-                    <input type="range" id="etmoidal-post-esq" name="etmoidal-post-esq" min="0" max="2" value="0" orient="vertical" oninput="this.nextElementSibling.value = this.value">
+                    <div class="feedback-container">
+                        <div class="recipiente" id="recipiente-maxilar-esq"></div>
+                    </div>
+                    <input type="range" id="maxilar-esq" name="maxilar-esq" min="0" max="2" value="0" title="Seio Maxilar Esquerdo">
                     <output>0</output>
                 </div>
+
+                <label for="maxilar-dir">Seio Maxilar (Direito)</label>
                 <div class="slider-container">
-                    <input type="range" id="etmoidal-post-dir" name="etmoidal-post-dir" min="0" max="2" value="0" orient="vertical" oninput="this.nextElementSibling.value = this.value">
+                    <div class="feedback-container">
+                        <div class="recipiente" id="recipiente-maxilar-dir"></div>
+                    </div>
+                    <input type="range" id="maxilar-dir" name="maxilar-dir" min="0" max="2" value="0" title="Seio Maxilar Direito">
                     <output>0</output>
                 </div>
             </div>
 
-            <!-- Linha de Seios Maxilares -->
-            <div class="form-row">
-                <label>Seio Maxilar</label>
+            <!-- Células Etmoidais Anteriores -->
+            <div class="form-row hidden" id="seio-etmoidal-ant">
+                <label for="etmoidal-ant-esq">Células Etmoidais Anteriores (Esquerdo)</label>
                 <div class="slider-container">
-                    <input type="range" id="maxilar-esq" name="maxilar-esq" min="0" max="2" value="0" orient="vertical" oninput="this.nextElementSibling.value = this.value">
+                    <div class="feedback-container">
+                        <div class="recipiente" id="recipiente-etmoidal-ant-esq"></div>
+                    </div>
+                    <input type="range" id="etmoidal-ant-esq" name="etmoidal-ant-esq" min="0" max="2" value="0" title="Células Etmoidais Anteriores Esquerdo">
                     <output>0</output>
                 </div>
+
+                <label for="etmoidal-ant-dir">Células Etmoidais Anteriores (Direito)</label>
                 <div class="slider-container">
-                    <input type="range" id="maxilar-dir" name="maxilar-dir" min="0" max="2" value="0" orient="vertical" oninput="this.nextElementSibling.value = this.value">
+                    <div class="feedback-container">
+                        <div class="recipiente" id="recipiente-etmoidal-ant-dir"></div>
+                    </div>
+                    <input type="range" id="etmoidal-ant-dir" name="etmoidal-ant-dir" min="0" max="2" value="0" title="Células Etmoidais Anteriores Direito">
                     <output>0</output>
                 </div>
             </div>
 
-            <!-- Linha de Seios Esfenoidais -->
-            <div class="form-row">
-                <label>Seio Esfenoidal</label>
+            <!-- Células Etmoidais Posteriores -->
+            <div class="form-row hidden" id="seio-etmoidal-post" >
+                <label for="etmoidal-post-esq">Células Etmoidais Posteriores (Esquerdo)</label>
                 <div class="slider-container">
-                    <input type="range" id="esfenoidal-esq" name="esfenoidal-esq" min="0" max="2" value="0" orient="vertical" oninput="this.nextElementSibling.value = this.value">
+                    <div class="feedback-container">
+                        <div class="recipiente" id="recipiente-etmoidal-post-esq"></div>
+                    </div>
+                    <input type="range" id="etmoidal-post-esq" name="etmoidal-post-esq" min="0" max="2" value="0" title="Células Etmoidais Posteriores Esquerdo">
                     <output>0</output>
                 </div>
+
+                <label for="etmoidal-post-dir">Células Etmoidais Posteriores (Direito)</label>
                 <div class="slider-container">
-                    <input type="range" id="esfenoidal-dir" name="esfenoidal-dir" min="0" max="2" value="0" orient="vertical" oninput="this.nextElementSibling.value = this.value">
+                    <div class="feedback-container">
+                        <div class="recipiente" id="recipiente-etmoidal-post-dir"></div>
+                    </div>
+                    <input type="range" id="etmoidal-post-dir" name="etmoidal-post-dir" min="0" max="2" value="0" title="Células Etmoidais Posteriores Direito">
                     <output>0</output>
                 </div>
             </div>
 
-            <!-- Linha de Complexo Óstiomeatal -->
-            <div class="form-row">
-                <label>Complexo Óstiomeatal</label>
+            <!-- Seio Esfenoidal -->
+            <div class="form-row hidden" id="seio-esfenoidal">
+                <label for="esfenoidal-esq">Seio Esfenoidal (Esquerdo)</label>
                 <div class="slider-container">
-                    <input type="range" id="ostio-complex-esq" name="ostio-complex-esq" min="0" max="2" value="0" orient="vertical" oninput="this.nextElementSibling.value = this.value">
+                    <div class="feedback-container">
+                        <div class="recipiente" id="recipiente-esfenoidal-esq"></div>
+                    </div>
+                    <input type="range" id="esfenoidal-esq" name="esfenoidal-esq" min="0" max="2" value="0" title="Seio Esfenoidal Esquerdo">
                     <output>0</output>
                 </div>
+
+                <label for="esfenoidal-dir">Seio Esfenoidal (Direito)</label>
                 <div class="slider-container">
-                    <input type="range" id="ostio-complex-dir" name="ostio-complex-dir" min="0" max="2" value="0" orient="vertical" oninput="this.nextElementSibling.value = this.value">
+                    <div class="feedback-container">
+                        <div class="recipiente" id="recipiente-esfenoidal-dir"></div>
+                    </div>
+                    <input type="range" id="esfenoidal-dir" name="esfenoidal-dir" min="0" max="2" value="0" title="Seio Esfenoidal Direito">
                     <output>0</output>
                 </div>
             </div>
 
-            <!-- Botão de Calcular e Exibir Resultado -->
+            <!-- Complexo Óstio-Meatal -->
+            <div class="form-row hidden" id="seio-ostio-complex">
+                <label for="ostio-complex-esq">Complexo Óstio-Meatal (Esquerdo)</label>
+                <div class="slider-container">
+                    <div class="feedback-container">
+                        <div class="recipiente" id="recipiente-ostio-complex-esq"></div>
+                    </div>
+                    <input type="range" id="ostio-complex-esq" name="ostio-complex-esq" min="0" max="2" value="0" title="Complexo Óstio-Meatal Esquerdo">
+                    <output>0</output>
+                </div>
+
+                <label for="ostio-complex-dir">Complexo Óstio-Meatal (Direito)</label>
+                <div class="slider-container">
+                    <div class="feedback-container">
+                        <div class="recipiente" id="recipiente-ostio-complex-dir"></div>
+                    </div>
+                    <input type="range" id="ostio-complex-dir" name="ostio-complex-dir" min="0" max="2" value="0" title="Complexo Óstio-Meatal Direito">
+                    <output>0</output>
+                </div>
+            </div>
+
+            <!-- Botão bilateral -->
+            <div class="button-group">
+                <button type="button" id="bilateral-button">Bilateral</button>
+            </div>
+
+            <!-- Botões de navegação -->
+            <div class="button-group">
+                <button type="button" id="prev-button">Voltar</button>
+                <button type="button" id="next-button">Próximo</button>
+            </div>
+
+            <!-- Botão de Reset -->
+            <div class="button-group">
+                <button type="button" id="reset-button">Reiniciar</button>
+            </div>
+
+            <!-- Botão de Calcular -->
             <div class="button-group">
                 <button type="button" id="calculate-button">Calcular Pontuação</button>
-                <label for="total-score">Pontuação Total</label>
-                <input type="text" id="total-score" readonly>
+                <label for="total-score"> Lund-Mackay </label>
+                <input type="number" id="total-score" readonly>
+            </div>
+            <!-- Botão para exibir/ocultar referências -->
+            <div class="button-group">
+                <button type="button" id="toggle-references-button">Mostrar Referências</button>
             </div>
         </form>
+    </section>
 
-        
+    <!-- Seção de Referências -->
+    <section id="references-section" class="hidden">
+        <h3>Referências:</h3>
+        <ul>
+            <li>Lund VJ, Mackay IS. Staging in rhinosinusitis. Rhinology. 1993 Dec;31(4):183-4.</li>
+            <li>Hopkins C, Browne JP, Slack R, Lund VJ, Brown P. The Lund-Mackay staging system for chronic rhinosinusitis: How is it used and what does it predict?. Otolaryngol Head Neck Surg. 2007 Oct;137(4):555-61. doi: 10.1016/j.otohns.2007.02.004.</li>
+        </ul>
     </section>
 
     <footer>

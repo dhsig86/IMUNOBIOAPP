@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 idade: 34,
                 sexo: "F",
                 cid: "J45.1, J32.4",
-                questionarioEligibilidade: "Paciente elegível com base no Questionário de Eligibilidade, pontuação total: 16",
+                questionarioEligibilidade: "16", // Apenas a pontuação
                 eosinofilia: 356,
                 lundMackay: 16,
                 snot22: 80,
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 idade: 45,
                 sexo: "M",
                 cid: "J45.0",
-                questionarioEligibilidade: "Paciente com asma moderada, elegível com base no Questionário de Eligibilidade, pontuação total: 14",
+                questionarioEligibilidade: "14",
                 eosinofilia: 420,
                 lundMackay: 12,
                 snot22: 60,
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 idade: 52,
                 sexo: "F",
                 cid: "J32.4",
-                questionarioEligibilidade: "Paciente elegível com base no Questionário de Eligibilidade, pontuação total: 18",
+                questionarioEligibilidade: "18",
                 eosinofilia: 500,
                 lundMackay: 20,
                 snot22: 90,
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const idade = idadePaciente.value;
         const sexo = sexoPaciente.value === "F" ? "feminino" : "masculino";
         const diagnostico = cid.value;
-        const questionarioTexto = questionarioEligibilidade.value;
+        const questionarioTexto = `Paciente elegível para tratamento com base no Questionário de Eligibilidade, pontuação total: ${questionarioEligibilidade.value}`;
         const eosinofiloTexto = eosinofilia.value ? `A contagem de eosinófilos foi de ${eosinofilia.value} células/µL.` : "Sem contagem recente de eosinófilos.";
         const lundMackayTexto = lundMackay.value ? `A pontuação Lund-Mackay foi de ${lundMackay.value}, indicando ${lundMackay.value >= 18 ? 'opacificação severa' : 'opacificação moderada'}.` : "";
         const snot22Texto = snot22.value ? `O índice SNOT-22, que reflete o impacto na qualidade de vida, foi de ${snot22.value}.` : "";
@@ -92,8 +92,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const comorbidadesTexto = comorbidades.value ? `Comorbidades relevantes incluem ${comorbidades.value}.` : "Sem comorbidades reportadas.";
 
         // Monta o texto do caso clínico com uma linguagem mais fluida e médica
-        return `Paciente de ${idade} anos, sexo ${sexo}, com diagnóstico de ${diagnostico}. O paciente é elegível para tratamento com base no Questionário de Eligibilidade, com uma pontuação total de ${questionarioTexto}. 
-                ${eosinofiloTexto} ${tomografiaTexto} ${lundMackayTexto} ${snot22Texto} 
+        return `Paciente de ${idade} anos, sexo ${sexo}, com diagnóstico de ${diagnostico}. ${questionarioTexto}. 
+                ${eosinofiloTexto} ${tomografiaTexto} ${lundMackayTexto} ${snot22Texto}
                 Na história clínica do paciente, foram reportadas ${comorbidadesTexto}.`;
     }
 
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <h3>Relatório Médico</h3>
             <p><strong>Nome:</strong> ${nomePaciente.value}</p>
             <p><strong>Idade:</strong> ${idadePaciente.value}</p>
-            <p><strong>Sexo:</strong> ${sexoPaciente.options[sexoPaciente.selectedIndex].text}</p>
+            <p><strong>Sexo:</strong> ${sexoPaciente.value}</p>
             <p><strong>CID10:</strong> ${cid.value}</p>
             <h4>Avaliação Clínica</h4>
             <p>${casoClinico.value}</p>
